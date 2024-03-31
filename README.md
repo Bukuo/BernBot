@@ -5,6 +5,9 @@
 Invite the bot in your server with [this link](https://bit.ly/BukuoBotLink).
 
 ## Commands
+<details>
+<summary>User commands</summary>
+<br>
 
 `/info`
 Get information about the bot
@@ -20,15 +23,27 @@ Retrieve user's avatar (if it has one)
  
 `/banner`
 Retrieve user's banner (if it has one)
+
+`/wisetree`
+Summon "that" tree
  
 `/invite`
 Get invite link
- 
+</details>
+
+<details>
+<summary>Staff commands</summary>
+<br>
+
 `/mute`
 Mute specified user
  
 `/unmute`
 Unmute specified user
- 
+
+`/ban`
+Ban specified user
+
 `/clear`
 Purge an amount of messages
+</details>
