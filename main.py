@@ -66,7 +66,7 @@ async def sync(interaction: discord.Interaction):
 
 @tree.command(name = "info", description = "Get information about the bot")
 async def info(interaction: discord.Interaction):
-    await interaction.response.send_message(f"Hello! I'm the Bukuo Bot! Version: 0.4.1. I run under `Python {platform.python_version()}` with `discord.py {version('discord.py')}`! ")
+    await interaction.response.send_message(f"Hello! I'm the Bukuo Bot! I currently run under `Python {platform.python_version()}` with `discord.py {version('discord.py')}`!")
 
 @tree.command(name = "ping", description = "Test bot's latency")
 async def ping(interaction: discord.Interaction):
