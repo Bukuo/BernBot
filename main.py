@@ -1,5 +1,4 @@
 import os
-import random
 import discord
 from discord import app_commands
 from dotenv import load_dotenv
@@ -38,7 +37,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.author == client.user:
+    if message.author == client.user or discord.Member.bot:
         return
     if client.user.mentioned_in(message):
         await message.channel.send("You can type `/commands` for more info!")
@@ -63,7 +62,6 @@ async def sync(interaction: discord.Interaction):
         await interaction.response.defer(ephemeral=True)
         await interaction.followup.send('You must be the owner to use this command!')
 
-
 @tree.command(name = "info", description = "Get information about the bot")
 async def info(interaction: discord.Interaction):
     await interaction.response.send_message(f"Hello! I'm the Bukuo Bot! I currently run under `Python {platform.python_version()}` with `discord.py {version('discord.py')}`!")
@@ -76,6 +74,7 @@ async def ping(interaction: discord.Interaction):
 async def commands(interaction: discord.Interaction):
     embed=discord.Embed(title="**Commands**", url="https://github.com/Bukuo/Bukuobot", description="List of commands")
     embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/1041023255089270816/41e68056f8c1809e90af7c756dff3786?size=1024")
+    embed.add_field(name="**Users commands**", value=" ", inline=False)
     embed.add_field(name="/info", value="Get information about the bot", inline=False)
     embed.add_field(name="/commands", value="Get list of commands", inline=False)
     embed.add_field(name="/ping", value="Test bot's latency", inline=False)
@@ -83,10 +82,10 @@ async def commands(interaction: discord.Interaction):
     embed.add_field(name="/banner", value="Retrieve user's banner (if he has one)", inline=False)
     embed.add_field(name="/wisetree", value="Summon 'that' tree", inline=False)
     embed.add_field(name="/invite", value="Get invite link", inline=False)
-    embed.add_field(name="**Admin commands**", value="From here are admin commands", inline=False)
+    embed.add_field(name="**Staff commands**", value=" ", inline=False)
     embed.add_field(name="/mute", value="Mute specified user", inline=False)
     embed.add_field(name="/unmute", value="Unmute specified user", inline=False)
-    embed.add_field(name="/ban", value="Ban someone", inline=False)
+    embed.add_field(name="/ban", value="Ban specified user", inline=False)
     embed.add_field(name="/clear", value="Purge an amount of messages", inline=False)
     await interaction.response.send_message(embed=embed)
 
