@@ -2,6 +2,9 @@
 > [!NOTE]
 > This is not a bot that you should use, things could not work at all. It is just a personal project of mine.
 
+> [!WARNING]
+> This bot is not hosted online, but only on my computer when I can. It will not be active 24/7.
+
 Invite the bot in your server with [this link](https://bit.ly/BukuoBotLink).
 
 ## Commands
