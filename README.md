@@ -1,6 +1,6 @@
-# Bukuobot
+# BernBot (Bukuobot)
 > [!NOTE]
-> This is not a bot that you should use. It is just a personal project of mine.
+> This is not a bot that you should use, things could not work at all. It is just a personal project of mine.
 
 Invite the bot in your server with [this link](https://bit.ly/BukuoBotLink).
 
