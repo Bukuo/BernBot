@@ -171,38 +171,6 @@ async def invite(interaction: discord.Interaction):
 async def wiseTree(interaction: discord.Interaction):
     await interaction.response.send_message("https://tenor.com/view/tree-wise-gif-26790708")
 
-@tree.command(name="joinvc", description="Will join the voice channel where you are")
-async def vc(interaction: discord.Interaction):
-    voices = interaction.client.voice_clients
-    for i in voices:
-        if i.channel == interaction.user.voice.channel:
-            voice = i
-            break
-    else:
-        if interaction.user.voice is not None:
-            vc = interaction.user.voice.channel
-            voice = await vc.connect()
-            await interaction.response.send_message("Joined voice channel.")
-        else:
-            await interaction.response.defer(ephemeral=True)
-            await interaction.followup.send("You are not in a voice channel.")
-            return
-        
-@tree.command(name="leavevc", description="Will leave the voice channel")
-async def lvc(interaction: discord.Interaction):
-    await interaction.user.voice.channel.disconnect()
-        
-@tree.command(name="playvc", description="Play a random music from Bukuo's folder")
-async def playrandom(interaction: discord.Interaction):
-    c = random.choice(os.listdir("C:/Users/Bukuo/Music/")) 
-    path = "C:/Users/Bukuo/Music/"
-    while ".mp3" not in c:
-        c = random.choice(os.listdir(path)) 
-    else:
-        interaction.user.voice.channel.play(discord.FFmpegPCMAudio(f"{path}/{c}", executable='ffmpeg'))
-        await interaction.response.send_message("playing")
-        
-
 
 load_dotenv()
 client.run(os.getenv("DISCORD_TOKEN"), log_handler=handler)
