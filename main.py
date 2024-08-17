@@ -45,9 +45,9 @@ def run():
         if client.user.mentioned_in(message):
             await message.channel.send("You can type `/commands` for more info!")
 
-    @tree.command(name='sync', description='Owner only', guild=discord.Object(id=guildid or 1223581543453163530))
+    @tree.command(name='sync', description='Owner only', guild=discord.Object(id=guildid or int(os.getenv("BERN_GUILD"))))
     async def sync(interaction: discord.Interaction):
-        if interaction.user.id == 404296022941106177:
+        if interaction.user.id == int(os.getenv("BERN_ID")):
             await tree.sync()
             await interaction.followup.send("Sync réussi", ephemeral=True)
             print('Command tree synced.')
@@ -56,7 +56,7 @@ def run():
 
     @tree.command(name='reset', description='Owner only', guild=discord.Object(id=guildid))
     async def sync(interaction: discord.Interaction):
-        if interaction.user.id == 404296022941106177:
+        if interaction.user.id == int(os.getenv("BERN_ID")):
             await client
             print('Reseted.')
         else:
@@ -93,8 +93,8 @@ def run():
     @has_permissions(manage_roles=True)
     @discord.app_commands.checks.bot_has_permissions(manage_messages=True)
     async def clear(interaction: discord.Interaction, amount:int):
-        await interaction.channel.purge(limit=amount)
         await interaction.followup.send(f"Cleared {amount} message(s).", ephemeral=True)
+        await interaction.channel.purge(limit=amount)
         print(f"Purged {amount} message(s) by {interaction.user}")
         
 
