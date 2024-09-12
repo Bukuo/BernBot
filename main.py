@@ -162,7 +162,7 @@ def run():
         if avatar_id:
             avatar_url = f"https://cdn.discordapp.com/avatars/{member.id}/{avatar_id}?size=1024"
 
-            embed = discord.Embed(title=f"{member.name}", url=avatar_url, description="User avatar", colour=0x1f1e33)
+            embed = discord.Embed(title=f"{member.name}", url=avatar_url, description=f"User avatar", colour=0x1f1e33)
             embed.set_image(url=avatar_url)
             await interaction.response.send_message(embed=embed)
 
